@@ -1,0 +1,19 @@
+version: '3.7'
+services:
+  db:
+    container_name: test_db
+    image: mysql/mysql-server:8.0.23
+    ports:
+      - "3308:3306"
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=test
+      - MYSQL_USER=test
+      - MYSQL_PASSWORD=password
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - ./mysql:/var/lib/mysql
+      - ./scripts/db:/docker-entrypoint-initdb.d

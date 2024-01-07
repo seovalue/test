@@ -1,0 +1,21 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+
+  datasource:
+    url: jdbc:mysql://localhost:3308/test
+    username: test
+    password: password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+logging.level:
+  org.hibernate.SQL: debug
